@@ -4,6 +4,8 @@ convert2img/
 # Log file
 log.log
 
+.vscode/
+
 # PDF test file inside dir
 *.pdf
 __pycache__/
