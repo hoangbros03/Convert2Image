@@ -49,6 +49,7 @@ class HeicHandler(Handler):
         new_name = new_name.replace("heic", "png")
 
         new_name = new_name.replace("HEIC", "png")
+        print("New name: ", new_name)
         new_filepath = os.path.join(output_dir, new_name)
         data.save(new_filepath, format("png"))
 

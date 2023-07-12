@@ -23,17 +23,18 @@ class TiffHandler(Handler):
         -------
         Nothing.
         """
-        filename = Path(file_path).name
+        # filename = Path(file_path).name
+        filename = Path(file_path)
         try:
             im = Image.open(file_path)
             for i, page in enumerate(ImageSequence.Iterator(im)):
                 if output_dir is not None:
                     output_filename = Path(output_dir) / str(
-                        filename + "-" + str(i + 1) + Handler.DEFAULT_EXTENSION
+                        filename.name + "-" + str(i + 1) + Handler.DEFAULT_EXTENSION
                     )
                 else:
                     output_filename = str(
-                        filename + "-" + str(i + 1) + Handler.DEFAULT_EXTENSION
+                        filename.name + "-" + str(i + 1) + Handler.DEFAULT_EXTENSION
                     )
                 page.save(output_filename)
 
