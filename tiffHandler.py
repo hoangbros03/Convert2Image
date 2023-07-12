@@ -22,5 +22,5 @@ class TiffHandler(Handler):
                 output_filename = filename + "-" + str(i + 1) + ".png"
                 page.save(output_filename)
 
-        except:
-            print(Path(file_path).suffix)
+        except FileNotFoundError:
+            print(f"Exception while handling file {file_path}")
