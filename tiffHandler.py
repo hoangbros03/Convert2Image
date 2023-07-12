@@ -1,5 +1,6 @@
 from pathlib import Path
 from PIL import Image, ImageSequence
+from handler import Handler
 
 class TiffHandler(Handler):
     SUPPORT_EXTENSIONS = ".tiff"
@@ -11,9 +12,9 @@ class TiffHandler(Handler):
         pass
 
     def convert(self, file_path, output_dir):
-        '''
+        """
         Convert input file .tiff to .png
-        '''
+        """
         filename = Path(file_path).name
         try:
             im = Image.open(file_path)
