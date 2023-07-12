@@ -1,2 +1,5 @@
 # Folder of venv
 convert2img/
+
+# Log file
+log.log
