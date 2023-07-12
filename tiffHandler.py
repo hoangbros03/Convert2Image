@@ -18,7 +18,7 @@ class TiffHandler(Handler):
         try:
             im = Image.open(file_path)
             for i, page in enumerate(ImageSequence.Iterator(im)):
-                output_filename = filename + "-" + str(i+1) + ".png"   
+                output_filename = filename + "-" + str(i + 1) + ".png"   
                 page.save(output_filename)
                     
         except:
