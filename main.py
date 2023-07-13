@@ -1,24 +1,13 @@
-import argparse
-
-
-def parse_args():
-    """Parse command line arguments."""
-    parser = argparse.ArgumentParser(description="Convert file to image")
-    parser.add_argument(
-        "-f",
-        "--image-file",
-        type=str,
-        nargs="+",
-        help="Insert image file that need converting to png",
-    )  # image path argument
-    return parser.parse_args()
+from utils import getModel, parse_args
 
 
 def main():
     """Convert file from argument to image
     Return: A path to a folder containing that image?
     """
-    pass
+    parse = parse_args()
+    model = getModel(parse.image_file[0])
+    model.forward(parse.image_file[0], parse.output_dir)
 
 
 if __name__ == "__main__":
