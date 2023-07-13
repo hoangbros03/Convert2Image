@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,13 +16,24 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   pre-commit:
-      runs-on: ubuntu-latest
-      steps:
+    runs-on: ubuntu-latest
+    steps:
       - name: Clone the repo
         uses: actions/checkout@v3
       - name: Setup python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.11'
+          python-version: "3.11"
       - name: run pre-commit
         uses: pre-commit/action@v3.0.0
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the repo
+        uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
+      - name: test
+        run: python test/unitTest.py
