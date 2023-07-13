@@ -38,4 +38,4 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: test
-        run: python test/unitTest.py
+        run: cd test && python unitTest.py
