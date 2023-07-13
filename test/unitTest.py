@@ -82,4 +82,7 @@ def test(filepaths: Path, outputdir: str) -> None:
 
 
 if __name__ == "__main__":
+    test("inputFiles/untitled-1.pdf", "outputFiles")
     test("inputFiles/heicTest.heic", "outputFiles")
+    test("inputFiles/pngTest.png", "outputFiles")
+    test("inputFiles/tiffTest.tiff", "outputFiles")
