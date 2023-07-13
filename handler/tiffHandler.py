@@ -2,10 +2,10 @@ from pathlib import Path
 
 from PIL import Image, ImageSequence
 
-from handler import Handler
+from handler.handler import Handler
 
 
-class TiffHandler(Handler):
+class Tiff_Handler(Handler):
     """
     Tiff handler class.
     """
@@ -30,11 +30,11 @@ class TiffHandler(Handler):
             for i, page in enumerate(ImageSequence.Iterator(im)):
                 if output_dir is not None:
                     output_filename = Path(output_dir) / str(
-                        filename.name + "-" + str(i + 1) + Handler.DEFAULT_EXTENSION
+                        filename.stem + "-" + str(i + 1) + Handler.DEFAULT_EXTENSION
                     )
                 else:
                     output_filename = str(
-                        filename.name + "-" + str(i + 1) + Handler.DEFAULT_EXTENSION
+                        filename.stem + "-" + str(i + 1) + Handler.DEFAULT_EXTENSION
                     )
                 page.save(output_filename)
 

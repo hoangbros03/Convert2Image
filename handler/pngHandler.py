@@ -4,7 +4,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from handler import Handler
+from handler.handler import Handler
 
 logging.basicConfig(
     filemode="a",

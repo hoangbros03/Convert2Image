@@ -11,6 +11,7 @@ class Handler:
 
     DEFAULT_EXTENSION = ".png"
     SUPPORT_EXTENSIONS = None
+    FIRST_FILE_INDICATION = "-1"
 
     def __init__(self):
         """

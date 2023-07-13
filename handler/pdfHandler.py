@@ -7,7 +7,7 @@ import fitz
 from pdf2image import convert_from_path
 from PIL import Image
 
-from handler import Handler
+from handler.handler import Handler
 
 logging.basicConfig(
     filemode="a",
@@ -183,4 +183,4 @@ class PDF_Handler(Handler):
 
         images = self.convert(file_path, output_dir)
         for i in range(len(images)):
-            self.save(images[i], Path(file_path).stem + str(i), output_dir)
+            self.save(images[i], Path(file_path).stem + "-" + str(i + 1), output_dir)

@@ -4,10 +4,10 @@ from pathlib import Path
 import pillow_heif
 from PIL import Image
 
-from handler import Handler
+from handler.handler import Handler
 
 
-class HeicHandler(Handler):
+class Heic_Handler(Handler):
     """
     class of Heic handler
     """
@@ -45,13 +45,14 @@ class HeicHandler(Handler):
             heif_file.data,
             "raw",
         )
-        new_name = file_path.split("\\")[-1]
-        new_name = new_name.replace("heic", "png")
 
-        new_name = new_name.replace("HEIC", "png")
-        print("New name: ", new_name)
-        new_filepath = os.path.join(output_dir, new_name)
-        data.save(new_filepath, format("png"))
+        self.checkDir(output_dir)
+        data.save(
+            Path(".")
+            / output_dir
+            / str(Path(file_path).stem + Handler.DEFAULT_EXTENSION),
+            format("png"),
+        )
 
     def forward(self, file_path, output_dir):
         """
