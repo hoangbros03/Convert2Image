@@ -11,7 +11,6 @@ class Handler:
 
     DEFAULT_EXTENSION = ".png"
     SUPPORT_EXTENSIONS = None
-    FIRST_FILE_INDICATION = "-1"
 
     def __init__(self):
         """
@@ -74,8 +73,6 @@ class Handler:
         Nothing
         """
         # Check if dir exist, otherwise create new
-        if output_dir is None:
-            return
         if not os.path.exists(output_dir):
             os.makedirs(output_dir, exist_ok=True)
 
